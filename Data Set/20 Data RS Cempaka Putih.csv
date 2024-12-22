@@ -1,0 +1,39 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+A1,Klinik Unesa,16  
+A1,A2,52
+A2,A1,52  
+A2,A3,18
+A3,A2,18  
+A3,A4,55.7
+A4,A3,55.7  
+A4,A5,68.4
+A5,A4,68.4  
+A5,A6,24
+A6,A5,24  
+A6,A7,11.8
+A7,A6,11.8  
+A7,RS Cempaka Putih,55
+RS Cempaka Putih,A7,55  
+Klinik Unesa,B1,22.8
+B1,Klinik Unesa,22.8  
+B1,B2,16.4
+B2,B1,16.4  
+B2,B3,14.9
+B3,B2,14.9  
+B3,B4,44.6
+B4,B3,44.6  
+B4,B5,32.5
+B5,B4,32.5  
+B5,B6,42.8
+B6,B5,42.8  
+B6,B7,43.2
+B7,B6,43.2  
+B7,A6,31.8
+A6,B7,31.8  
+B5,C1,45
+C1,B5,45
+C1,B7,42
+B7,C1,42  
+C1,A5,22.1
+A5,C1,22.1  

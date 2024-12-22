@@ -1,0 +1,19 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+Klinik Unesa,V1,22
+A1,F1,52.1
+V1,V2,18.5
+F1,F2,18.1
+F2,F6,59.2
+V2,V3,15.2
+V3,V5,44
+V5,V6,32.4
+V6,F1,90
+V6,V9,45.3
+V9,V10,22
+V10,F6,68.6
+F6,Fv1,19.9
+Fv1,Fv2,133
+Fv2,Fv3,39.1
+Fv3,Fv6,255
+Fv6,"RS Wiyung Sejahtera",11.4

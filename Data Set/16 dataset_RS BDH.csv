@@ -1,0 +1,21 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16.0
+A1,A2,69
+A2,A3,58.4
+A3,A4,17
+A4,A5,103
+A5,A6,30.5
+A6,A7,405
+A7,A8,115
+A8,A9,280
+A9,A10,43
+A10,A11,225
+A11,A12,55
+A12,A13,27
+A13,A14,79
+A14,A15,64
+A15,RS Bhakti Dharma Husada,104
+A5,B1,700
+B1,B2,68
+B2,B3,830
+B3,RS Bhakti Dharma Husada,50

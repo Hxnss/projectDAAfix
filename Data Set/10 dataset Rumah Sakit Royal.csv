@@ -1,0 +1,14 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+A1,A2,31.5
+A2,A3,22.4
+A3,A4,10.2
+A4,A5,67.4
+A5,A6,9.8
+A6,A7,174
+A7,A8,100
+A8,Rumah Sakit Royal,211
+A2,B1,4.3
+B1,B2,100
+B2,B3,36.7
+B3,A7,11.9

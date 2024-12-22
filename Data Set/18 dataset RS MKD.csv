@@ -1,0 +1,20 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+A1,A2,69
+A2,A3,58
+A3,A4,17
+A4,A5,29
+A5,A6,80
+A5,B1,95
+A6,A7,63
+A7,A8,232
+A8,A9,85
+B1,B2,48
+B2,B3,5
+B3,B4,145
+B4,A9,11
+A9,A10,140
+A10,A11,107
+A11,A12,79
+A12,A13,22
+A13,RS Mitra Keluarga Darmo,20

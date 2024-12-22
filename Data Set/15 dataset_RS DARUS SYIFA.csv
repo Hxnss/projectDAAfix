@@ -1,0 +1,17 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+A1,A2,69
+A2,A3,58.4
+A3,A4,17
+A4,A5,103
+A5,A6,700
+A6,A7,175
+A7,A8,832
+A8,A9,260
+A9,A10,225
+A10,A11,440
+A11,A12,58
+A12,A13,55
+A13,RSI Darus Syifa,48
+A6,B1,68
+B1,RSI Darus Syifa,1125

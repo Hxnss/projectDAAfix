@@ -1,0 +1,9 @@
+Node Awal,Node Tujuan,Jarak
+Klinik Unesa,A1,16
+A1,A2,31.5
+A2,A3,22.4
+A2,B1,25.5
+B1,B2,27
+A3,A4,11.5
+A4,Rumah Sakit Islam,20
+B2,Rumah Sakit Islam,15.5
