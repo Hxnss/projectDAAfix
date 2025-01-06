@@ -83,7 +83,7 @@ rs_data = {
     },
     "RS Cempaka Putih": {
         "code": "RS Cempaka Putih",
-        "file": "Data Set/Data RS Cempaka Putih.csv",
+        "file": "Data Set/20 Data RS Cempaka Putih.csv",
         "desc": "Rumah Sakit Cempaka Putih adalah salah satu fasilitas kesehatan di Surabaya yang menawarkan layanan medis berkualitas untuk masyarakat. Dengan fasilitas yang memadai dan tenaga medis profesional, rumah sakit ini menjadi pilihan masyarakat untuk memenuhi kebutuhan kesehatan dengan layanan yang ramah dan efisien.",
         "image": "Tampilan Aplikasi/10 RS Cempaka Putih.jpeg"
     },
