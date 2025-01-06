@@ -930,4 +930,4 @@ if st.session_state["page"] == "halaman_utama":
 elif st.session_state["page"] == "menu_rs":
     menu_rs()
 elif st.session_state["page"] == "halaman_rs":
-    halaman_rs()
+    halaman_rs()
