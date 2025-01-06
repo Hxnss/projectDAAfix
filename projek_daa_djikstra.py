@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import folium
 from streamlit_folium import folium_static
+import time
 
 # Setup page config
 st.set_page_config(page_title="Optimasi Rute Ambulans", layout="wide")
@@ -60,25 +61,25 @@ rs_data = {
     "Rumah Sakit Bhayangkara": {
         "code": "Rumah Sakit Bhayangkara",
         "file": "Data Set/1 dataset_Rumah Sakit Bhayangkara.csv",
-        "desc": " Jl. Ahmad Yani No.116, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60231; Telepon: (031) 8292227",
+        "desc": "Rumah Sakit Bhayangkara terletak di Jl. Ahmad Yani No.116, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur. Sebagai salah satu rumah sakit utama di wilayah tersebut, fasilitas ini menawarkan berbagai layanan kesehatan, termasuk pemeriksaan umum, bedah, dan layanan darurat 24 jam. Dengan lokasi strategis dan dukungan tenaga medis yang profesional, rumah sakit ini menjadi pilihan utama bagi masyarakat sekitar. Untuk informasi lebih lanjut, Anda dapat menghubungi telepon (031) 8292227.",
         "image": "Tampilan Aplikasi/1 RS bhayangkara.jpg"
     },
     "Rumah Sakit Ramelan": {
         "code": "Rumah Sakit Ramelan",
         "file": "Data Set/2 dataset_Rumah Sakit Ramelan.csv",
-        "desc": "Jl. Gadung No.1, Jagir, Kec. Wonokromo, Surabaya, Jawa Timur 60244; Telepon: (031) 8438153",
+        "desc": "Berlokasi di Jl. Gadung No.1, Jagir, Kec. Wonokromo, Surabaya, Rumah Sakit Ramelan adalah salah satu rumah sakit rujukan dengan layanan kesehatan lengkap. Rumah sakit ini dilengkapi dengan teknologi medis terkini, fasilitas perawatan intensif, dan berbagai poliklinik spesialis untuk memenuhi kebutuhan masyarakat. Untuk informasi atau pertanyaan, Anda dapat menghubungi (031) 8438153.",
         "image": "Tampilan Aplikasi/2 RS Ramelan.png"
     },
     "Rumah Sakit Islam": {
         "code": "Rumah Sakit Islam",
         "file": "Data Set/3 dataset_Rumah Sakit Islam.csv",
-        "desc": "Jl. Achmad Yani No.2-4, Wonokromo, Kec. Wonokromo, Surabaya, Jawa Timur 60243; Telepon: (031) 8284505",
+        "desc": "Rumah Sakit Islam berada di Jl. Achmad Yani No.2-4, Wonokromo, Kec. Wonokromo, Surabaya, Jawa Timur. Rumah sakit ini dikenal dengan pelayanan berbasis syariah yang mencakup layanan kesehatan umum, spesialis, dan rawat inap. Dengan motto pelayanan sepenuh hati, Rumah Sakit Islam memberikan perhatian khusus pada kenyamanan pasien. Telepon yang dapat dihubungi adalah (031) 8284505",
         "image": "Tampilan Aplikasi/3 RS Islam Surabaya.jpg"
     },
     "RSU Bakti Rahayu": {
         "code": "RSU Bakti Rahayu",
         "file": "Data Set/4 dataset_RSU Bakti Rahayu.csv",
-        "desc": "Jl. Ketintang Madya I No.16, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60232; Telepon: (031) 8295922",
+        "desc": "RSU Bakti Rahayu, beralamat di Jl. Ketintang Madya I No.16, Ketintang, Kec. Gayungan, Surabaya, adalah rumah sakit yang fokus pada pelayanan kesehatan komprehensif untuk semua kalangan. Rumah sakit ini memiliki layanan gawat darurat, poliklinik spesialis, serta fasilitas diagnostik lengkap. Untuk informasi lebih lanjut, hubungi (031) 8295922.",
         "image": "Tampilan Aplikasi/4 RSU Bhakti Rahayu.jpg"
     },
     "RS Cempaka Putih": {
@@ -90,91 +91,91 @@ rs_data = {
     "RS Wiyung Sejahtera":{
         "code": "RS Wiyung Sejahtera",
         "file": "Data Set/5 dataset_RS Wiyung Sejahtera.csv",
-        "desc": "Jl. Karangan Pdam No.1-3, Babatan, Kec. Wiyung, Surabaya, Jawa Timur 60227; Phone: (031) 7532653",
+        "desc": "RS Wiyung Sejahtera berlokasi di Jl. Karangan Pdam No.1-3, Babatan, Kec. Wiyung, Surabaya. Rumah sakit ini menyediakan layanan kesehatan berkualitas dengan fasilitas lengkap, termasuk rawat inap, rawat jalan, dan pelayanan gawat darurat 24 jam. Rumah sakit ini dikenal dengan staf medisnya yang ramah dan berpengalaman. Hubungi (031) 7532653 untuk informasi lebih lanjut.",
         "image": "Tampilan Aplikasi/5 RS Wiyung Sejahtera.png"
     },
     "RSUD Soetomo":{
         "code": "RSUD Soetomo",
         "file": "Data Set/6 dataset RSUD Soetomo.csv",
-        "desc": "Jl. Prof. DR. Moestopo No.6-8, Airlangga, Kec. Gubeng, Surabaya, Jawa Timur 60286; Phone: (031) 5501078",
+        "desc": "RSUD Dr. Soetomo adalah rumah sakit rujukan nasional yang terletak di Jl. Prof. DR. Moestopo No.6-8, Airlangga, Surabaya. Sebagai rumah sakit pendidikan, fasilitas ini menawarkan layanan kesehatan super spesialistik dan dilengkapi teknologi medis terkini. Dengan kapasitas besar dan dokter ahli di berbagai bidang, RSUD Dr. Soetomo melayani pasien dari seluruh Indonesia.",
         "image": "Tampilan Aplikasi/6 RSUD Soetomo.jpeg"
     },
     "RS RSIA Pura Raharja":{
         "code": "RS RSIA Pura Raharja",
         "file": "Data Set/7 dataset_RS RSIA Pura Raharja.csv",
-        "desc": "cJl. Pucang Adi No.12-14, Kertajaya, Kec. Gubeng, Surabaya, Jawa Timur 60282; Phone: (031) 5019898",
+        "desc": "Rumah Sakit Ibu dan Anak (RSIA) Pura Raharja menawarkan layanan kesehatan ibu dan anak yang komprehensif. Terletak di Jl. Pucang Adi No.12-14, rumah sakit ini memiliki fasilitas unggulan untuk perawatan kehamilan, persalinan, dan kesehatan anak. Dengan suasana nyaman dan dukungan tenaga medis ahli, rumah sakit ini menjadi pilihan keluarga.",
         "image": "Tampilan Aplikasi/7 RS RSIA Pura Raharja.jpg"
     },
     "RS PHC Surabaya":{
         "code": "RS PHC Surabaya",
         "file": "Data Set/8 dataset_RS PHC Surabaya.csv",
-        "desc": "Jl. Prapat Kurung Selatan No.1, Perak Utara, Kec. Pabean Cantikan, Surabaya, Jawa Timur 60165; Phone: (031) 3294801",
+        "desc": "Rumah Sakit PHC Surabaya berada di Jl. Prapat Kurung Selatan No.1. Rumah sakit ini dikenal dengan layanan kesehatan industri, selain juga melayani kebutuhan kesehatan umum. Dengan lokasi strategis di dekat pelabuhan, rumah sakit ini menjadi andalan para pekerja di sektor maritim dan industri.",
         "image": "Tampilan Aplikasi/8 RS PHC Surabaya.jpg"
     },
     "Mitra Keluarga Kenjeran":{
         "code": "Mitra Keluarga Kenjeran",
         "file": "Data Set/9 dataset_RS Mitra Keluarga Kenjeran.csv",
-        "desc": "Jl. Kenjeran No.506, Kalijudan, Kec. Mulyorejo, Surabaya, Jawa Timur 60134; Phone: (031) 99000880",
+        "desc": "Rumah Sakit Mitra Keluarga Kenjeran menyediakan berbagai layanan kesehatan untuk masyarakat Surabaya Timur. Rumah sakit ini memiliki fasilitas modern untuk perawatan rawat inap, rawat jalan, dan pemeriksaan kesehatan preventif. Berlokasi di Jl. Kenjeran No.506, rumah sakit ini mengedepankan pelayanan ramah dan profesional.",
         "image": "Tampilan Aplikasi/9 Mitra Keluarga Kenjeren.jpg"
     },
     "Rumah Sakit Royal":{
         "code": "Rumah Sakit Royal",
         "file": "Data Set/10 dataset Rumah Sakit Royal.csv",
-        "desc": "Jl. Rungkut Industri I No.1, Kendangsari, Kec. Tenggilis Mejoyo, Surabaya, Jawa Timur 60292; Phone: (031) 8476111",
+        "desc": "Rumah Sakit Royal terletak di kawasan strategis Surabaya Timur, berdekatan dengan area industri Rungkut. Rumah sakit ini menawarkan layanan medis lengkap yang meliputi rawat jalan, rawat inap, layanan darurat 24 jam, serta fasilitas diagnostik modern. Dengan tim dokter spesialis yang berpengalaman dan peralatan medis canggih, Rumah Sakit Royal berkomitmen memberikan pelayanan kesehatan terbaik untuk masyarakat. Selain itu, lokasinya yang mudah diakses menjadikannya pilihan utama bagi pasien yang membutuhkan perawatan medis segera.",
         "image": "Tampilan Aplikasi/11 rs royal.jpg"
     },
     "RSGM Nala Husada":{
         "code": "RSGM Nala Husada",
         "file": "Data Set/11 dataset_RSGM Nala Husada.csv",
-        "desc": "Jl. Arief Rahman Hakim No.150, Keputih, Kec. Sukolilo, Surabaya, Jawa Timur 60111; Phone: (031) 59173300",
+        "desc": "RSGM Nala Husada adalah rumah sakit yang berfokus pada kesehatan gigi dan mulut, berlokasi di pusat pendidikan dan teknologi Surabaya. Rumah sakit ini dilengkapi dengan fasilitas perawatan gigi terkini, seperti radiografi digital, perawatan ortodonti, hingga bedah mulut. Selain melayani pasien umum, RSGM Nala Husada juga menjadi pusat pelatihan dan pendidikan bagi mahasiswa kedokteran gigi. Pelayanan profesional yang didukung dengan standar internasional menjadikan RSGM Nala Husada tempat yang ideal untuk pengobatan dan pencegahan masalah kesehatan gigi dan mulut.",
         "image": "Tampilan Aplikasi/12 rsgm nala husada.jpg"
     },
     "Rumah Sakit Manyar":{
         "code": "Rumah Sakit Manyar",
         "file": "Data Set/12 dataset_ Rumah Sakit Manyar.csv",
-        "desc": "Jl. Raya Manyar No.9, Manyar Sabrangan, Kec. Mulyorejo, Surabaya, Jawa Timur 60284; Phone: (031) 5999339",
+        "desc": "Rumah Sakit Manyar merupakan fasilitas kesehatan yang melayani masyarakat Surabaya Timur, khususnya di kawasan Mulyorejo. Dengan layanan seperti poliklinik spesialis, instalasi gawat darurat, dan laboratorium diagnostik, rumah sakit ini menawarkan solusi medis yang terjangkau dan berkualitas. Rumah Sakit Manyar juga dikenal dengan program promosi kesehatannya yang sering melibatkan masyarakat sekitar, seperti pemeriksaan kesehatan gratis dan seminar kesehatan.",
         "image": "Tampilan Aplikasi/13 manyar.jpeg"
     },
     "Rumah Sakit UBAYA":{
         "code": "Rumah Sakit UBAYA",
         "file": "Data Set/13 dataset_Rumah Sakit UBAYA.csv",
-        "desc": "Jl. Raya Panjang Jiwo Permai No.87 89, Panjang Jiwo, Kec. Tenggilis Mejoyo, Surabaya, Jawa Timur 60299; Phone: (031) 99211515",
+        "desc": "Sebagai bagian dari Universitas Surabaya (UBAYA), Rumah Sakit UBAYA menggabungkan pendidikan, penelitian, dan pelayanan kesehatan. Rumah sakit ini dilengkapi dengan berbagai fasilitas unggulan, seperti pusat rehabilitasi, ruang operasi modern, dan laboratorium diagnostik canggih. Selain melayani kebutuhan medis umum, RS UBAYA juga aktif dalam program kesehatan masyarakat dan menjadi tempat praktik mahasiswa kedokteran UBAYA. Dengan pendekatan berbasis riset, rumah sakit ini terus berinovasi dalam memberikan layanan yang efektif dan efisien.",
         "image": "Tampilan Aplikasi/14 rs ubaya.jpg"
     },
     "Premier Hospital Suarabaya": {
         "code": "Premier Hospital Suarabaya",
         "file": "Data Set/14 dataset_Premier Hospital Surabaya.csv",
-        "desc": "Jl. Nginden Intan Barat No.Blok B, Nginden Jangkungan, Kec. Sukolilo, Surabaya, Jawa Timur 60118; Phone: (031) 5993211",
+        "desc": "Premier Hospital Surabaya adalah rumah sakit dengan layanan kesehatan premium yang melayani pasien lokal dan internasional. Dikenal dengan lingkungan yang bersih dan nyaman, rumah sakit ini menyediakan fasilitas seperti suite eksklusif untuk pasien VIP, pusat diagnostik lengkap, serta layanan kesehatan holistik. Premier Hospital juga memiliki tim medis multidisiplin yang selalu siap memberikan perawatan individual sesuai kebutuhan pasien.",
         "image": "Tampilan Aplikasi/15 premier hospital.png"
     },
     "RSI Darus Syifa":{
         "code": "RSI Darus Syifa",
         "file": "Data Set/15 dataset_RS DARUS SYIFA.csv",
-        "desc": "Jl. Raya Benowo No.5, Benowo, Kec. Pakal, Surabaya, Jawa Timur 60195; Phone: (031) 7406293",
+        "desc": "RSI Darus Syifa adalah rumah sakit berbasis syariah yang mengintegrasikan pelayanan kesehatan modern dengan nilai-nilai Islam. Rumah sakit ini memiliki fasilitas yang mencakup layanan maternitas, kesehatan anak, dan perawatan penyakit kronis. Selain itu, RSI Darus Syifa juga mengadakan kegiatan sosial seperti pengobatan gratis dan edukasi kesehatan berbasis komunitas. Dengan suasana yang nyaman dan layanan penuh kasih, rumah sakit ini menjadi pilihan bagi mereka yang mencari pengobatan sesuai syariat Islam.",
         "image": "Tampilan Aplikasi/16 RSI Darus Syifa.png"
     },
     "RS Bhakti Dharma Husada":{
         "code": "RS Bhakti Dharma Husada",
         "file": "Data Set/16 dataset_RS BDH.csv",
-        "desc": "Jl. Kendung No.115-117, Sememi, Kec. Benowo, Surabaya, Jawa Timur 60198; Phone: (031) 7409135",
+        "desc": "Terletak di kawasan Benowo, RS Bhakti Dharma Husada melayani kebutuhan kesehatan masyarakat dengan fasilitas yang lengkap dan modern. Rumah sakit ini menyediakan layanan unggulan seperti poliklinik spesialis, ICU, dan fasilitas rawat inap yang nyaman. Sebagai bagian dari komunitas, RS BDH sering terlibat dalam program kesehatan masyarakat, seperti penyuluhan kesehatan dan pemeriksaan gratis.",
         "image": "Tampilan Aplikasi/17 RS BDH.jpg"
     },
     "Rumah Sakit Bunda":{
         "code": "Rumah Sakit Bunda",
         "file": "Data Set/17 dataset RS BUNDA.csv",
-        "desc": "Jl. Raya Kandangan No.23-24, Kandangan, Kec. Benowo, Surabaya, Jawa Timur 60199; Phone: (031) 7442220",
+        "desc": "Rumah Sakit Bunda adalah fasilitas kesehatan yang terkenal dengan layanan kesehatan ibu dan anak. Dengan fasilitas seperti ruang bersalin modern, perawatan neonatal intensif (NICU), dan layanan konsultasi kesehatan keluarga, RS Bunda menjadi pilihan utama bagi keluarga di kawasan Kandangan. Rumah sakit ini juga menawarkan layanan imunisasi dan program edukasi kesehatan untuk mendukung kesejahteraan ibu dan anak.",
         "image": "Tampilan Aplikasi/18 RS BUNDA.jpg"
     },
     "RS Mitra Keluarga Darmo": {
         "code": "RS Mitra Keluarga Darmo",
         "file": "Data Set/18 dataset RS MKD.csv",
-        "desc": "Komplek Darmo Satelit, Jl. Satelit Indah II, Tanjungsari, Kec. Sukomanunggal, Surabaya, Jawa Timur 60187; Telp, : 031-7345111",
+        "desc": "RS Mitra Keluarga Darmo dikenal dengan pelayanannya yang ramah, efisien, dan berkualitas. Berlokasi di kawasan Darmo Satelit, rumah sakit ini menawarkan berbagai layanan, termasuk pusat radiologi, farmasi 24 jam, dan unit rawat inap dengan fasilitas hotel. RS Mitra Keluarga Darmo juga memiliki program pencegahan kesehatan, seperti pemeriksaan kesehatan berkala dan konsultasi gizi.",
         "image": "Tampilan Aplikasi/19 RS MKD.jpg"
     },
     "RS Muji Rahayu": {
         "code": "RS Muji Rahayu",
         "file": "Data Set/19 dataset RS MUJI RAHAYU.csv",
-        "desc": "Jl. Raya Manukan Wetan No.68 A, Manukan Wetan, Kec. Tandes, Surabaya, Jawa Timur 60185; Phone: (031) 7404132",
+        "desc": "RS Muji Rahayu berkomitmen memberikan pelayanan kesehatan yang terjangkau bagi masyarakat Surabaya Barat. Rumah sakit ini menawarkan layanan seperti rawat jalan, unit gawat darurat 24 jam, dan poliklinik spesialis. Dilengkapi dengan laboratorium diagnostik dan apotek onsite, RS Muji Rahayu memastikan pasien mendapatkan perawatan yang cepat dan efektif.",
         "image": "Tampilan Aplikasi/20 RS MUJI RAHAYU.jpg"
     }
 }
@@ -263,6 +264,25 @@ node_positions = {
         "Fv3": (3.5,7.5),
         "Fv6": (1,7.8),
         "RS Wiyung Sejahtera": (1.3,8)
+    },
+    "RS Cempaka Putih": {
+        "Klinik Unesa": (190, 88),
+        "A1": (201, 119),
+        "A2": (86, 168),
+        "A3": (48, 185),
+        "A4": (-79, 146),
+        "A5": (-114, -14),
+        "A6": (-126, -62),
+        "A7": (-155, -67),
+        "RS Cempaka Putih": (-210, -181),
+        "B1": (166, 47),
+        "B2": (150, 6),
+        "B3": (117, 17),
+        "B4": (77, -80),
+        "B5": (5, -53),
+        "B6": (-10, -152),
+        "B7": (-108, -126),
+        "C1": (-83, -30)
     },
     "RSUD Soetomo": {
         "Klinik Unesa": (0,0),
@@ -689,7 +709,6 @@ def draw_graph(graph, path, hospital_name):
     return plt
 
 def format_distance(meters):
-    """Format distance in meters to a readable string with both meters and kilometers"""
     km = meters / 1000
     return f"{meters:.1f} meter ({km:.2f} km)"
 
@@ -726,17 +745,11 @@ def menu_rs():
 
         with col2:
             st.markdown(f'<h2 class="title_rs">{title}</h2>', unsafe_allow_html=True)
-            st.markdown("#### Berikan Rating Anda:")
-            rating = st.slider("Pilih rating (1-5):", min_value=1, max_value=5, value=3, key=f"slider_{title}")
 
-            # Menampilkan hasil rating dalam bentuk bintang
-            st.write(f"Rating Anda: {'⭐' * rating}")
-            
             st.markdown(data["desc"])
             if st.button(f"Pilih {title}", key=title):
                 st.session_state["selected_rs"] = title
                 st.session_state["page"] = "halaman_rs"
-                st.success(f"Anda memilih {title} dengan rating {rating} bintang!")
 
     if st.button("Kembali"):
         st.session_state["page"] = "halaman_utama"
@@ -755,8 +768,15 @@ def halaman_rs():
 
         graph = load_graph_from_file(rs_data[title]["file"])
         if graph:
+            # start_time = time.time() 
             distances, previous_nodes = dijkstra(graph, "Klinik Unesa", rs_data[title]["code"])
+            print('distances: ', distances)
+            print('previous: ', previous_nodes)
+            # end_time = time.time()
+            # execution_time = end_time + start_time
+            # print(f"Waktu eksekusi algoritma DijkstraCempaka: {execution_time:.50f} detik")
             path = shortest_path(previous_nodes, "Klinik Unesa", rs_data[title]["code"])
+            print(path)
 
             if rs_data[title]["code"] in distances and distances[rs_data[title]["code"]] != float('inf'):
                 st.success(f"Rute Terpendek:\n{' → '.join(path)}")
@@ -905,10 +925,9 @@ def create_map_with_manual_route(path, hospital_name, node_coordinates):
 # Routing halaman
 if "page" not in st.session_state:
     st.session_state["page"] = "halaman_utama"
-
 if st.session_state["page"] == "halaman_utama":
     halaman_utama()
 elif st.session_state["page"] == "menu_rs":
     menu_rs()
 elif st.session_state["page"] == "halaman_rs":
-    halaman_rs()
+    halaman_rs()
