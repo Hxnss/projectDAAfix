@@ -783,7 +783,7 @@ def halaman_rs():
                 st.info(f"Total Jarak: {format_distance(distances[rs_data[title]['code']])}")
 
                 # Calculate estimated time (assuming average speed of 40 km/h)
-                speed = 60  # km/h
+                speed = 40  # km/h
                 time_hours = (distances[rs_data[title]["code"]] / 1000) / speed
                 time_minutes = time_hours * 60
                 st.info(f"Estimasi Waktu: {time_minutes:.1f} menit")
