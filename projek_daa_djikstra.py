@@ -654,7 +654,7 @@ def draw_graph(graph, path, hospital_name):
                     is_path_edge = True
             
             # Draw the edge
-            color = 'red' if is_path_edge else 'gray'
+            color = 'blue' if is_path_edge else 'gray'
             width = 3 if is_path_edge else 1
             plt.plot([source_pos[0], target_pos[0]], 
                     [source_pos[1], target_pos[1]], 
