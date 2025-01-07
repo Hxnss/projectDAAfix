@@ -702,7 +702,7 @@ def draw_graph(graph, path, hospital_name):
     plt.ylim(min(all_y) - 1, max(all_y) + 1)
     
     # Set title and remove axes
-    plt.title(f"Peta Rute ke {hospital_name}", pad=20, size=16)
+    plt.title(f"Graph ke {hospital_name}", pad=20, size=16)
     plt.gca().set_aspect('equal')
     plt.axis('off')
     
